@@ -9,8 +9,6 @@ type StatisticsProps = {
 }
 
 export function Statistics({ user }: StatisticsProps) {
-  console.log(user);
-  
   return (
     <View>
       <Text className="text-zinc-600 text-2xl mb-4 font-semibold">Estatísticas</Text>
