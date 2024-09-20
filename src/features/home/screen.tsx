@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getMeService, type User } from "@/shared/services/get-me-service";
 import { Info } from "./components/info";
 import { Fragment } from "react";
+import { Admin } from "./components/admin";
 
 type ComponentProps = {
   statistics?: { user: User };
@@ -66,6 +67,7 @@ export function HomeScreen() {
               achievements: { user: data.user }
             }} 
           />
+          <Admin />
         </View>
     </ScrollView>
   )
