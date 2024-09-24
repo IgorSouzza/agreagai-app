@@ -2,10 +2,12 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { Pressable, Text, View } from "react-native";
 import { addExpService } from "../services/add-exp-service";
 import { addLevelService } from "../services/add-level-service";
+import { LoaderCircle } from "lucide-react-native";
+import { Button } from "@/shared/components/button";
 
 export function Admin() {
   const queryClient = useQueryClient()
-  const { mutate: addExpServiceFn } = useMutation({
+  const { mutate: addExpServiceFn, isPending: isPendingAddExpService } = useMutation({
     mutationFn: addExpService,
     onSuccess: () => {
       console.log('EXP adicionado com sucesso!');
@@ -13,7 +15,7 @@ export function Admin() {
     }
   })
 
-  const { mutate: addLevelServiceFn } = useMutation({
+  const { mutate: addLevelServiceFn, isPending: isPendingAddLevelService } = useMutation({
     mutationFn: addLevelService,
     onSuccess: () => {
       console.log('Level adicionado com sucesso!');
@@ -36,12 +38,12 @@ export function Admin() {
             </Text>
           </View>
           <View className="flex flex-row gap-2 items-center">
-            <Pressable 
-              className="px-3 py-1 bg-sky-400 rounded-lg border-b-sky-600 border-b-4"
+          <Button 
               onPress={() => addExpServiceFn()}
+              isLoading={isPendingAddExpService}
             >
-              <Text className="text-white text-2xl">+</Text>
-            </Pressable>
+              <Text className="text-white">+</Text>
+            </Button>
           </View>
         </View>
         <View 
@@ -53,12 +55,12 @@ export function Admin() {
             </Text>
           </View>
           <View className="flex flex-row gap-2 items-center">
-            <Pressable 
-              className="px-3 py-1 bg-sky-400 rounded-lg border-b-sky-600 border-b-4"
+            <Button 
               onPress={() => addLevelServiceFn()}
+              isLoading={isPendingAddLevelService}
             >
-              <Text className="text-white text-2xl">+</Text>
-            </Pressable>
+              <Text className="text-white">+</Text>
+            </Button>
           </View>
         </View>
       </View>

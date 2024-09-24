@@ -9,6 +9,7 @@ import { getMeService, type User } from "@/shared/services/get-me-service";
 import { Info } from "./components/info";
 import { Fragment } from "react";
 import { Admin } from "./components/admin";
+import { Modal } from "@/shared/components/modal";
 
 type ComponentProps = {
   statistics?: { user: User };
@@ -68,6 +69,7 @@ export function HomeScreen() {
             }} 
           />
           <Admin />
+          <Modal />
         </View>
     </ScrollView>
   )
