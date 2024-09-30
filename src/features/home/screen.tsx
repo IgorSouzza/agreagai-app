@@ -34,7 +34,7 @@ const DynamicComponents: React.FC<DynamicComponentsProps> = ({ keysFromApi, comp
   return (
     <>
       {keysFromApi.map((key) =>
-        <Fragment key={key}>
+        <Fragment key={Math.random()}>
           {componentsMap[key] ? componentsMap[key](componentProps[key] || {}) : null}
         </Fragment>
       )}

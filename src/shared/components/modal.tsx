@@ -14,7 +14,7 @@ export function Modal() {
 
   useEffect(() => {
     if (!data?.user) return
-    if (data?.user.level > 1) setModalVisible(true)
+    if (data?.user.leveled_up) setModalVisible(true)
   }, [data])
 
   return (

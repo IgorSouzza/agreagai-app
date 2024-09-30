@@ -6,6 +6,7 @@ export type User = {
   exp: number,
   exp_to_level_up: number,
   achievements: [],
+  leveled_up: boolean,
   home_components: {
     id: string
     label: string
